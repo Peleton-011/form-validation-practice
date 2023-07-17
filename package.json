@@ -1,0 +1,14 @@
+{
+  "name": "form-validation-practice",
+  "version": "1.0.0",
+  "description": "A practice project in form validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "presa-form-validation": "^1.0.1"
+  }
+}
