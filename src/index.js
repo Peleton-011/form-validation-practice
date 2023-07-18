@@ -1,8 +1,7 @@
-import Form from "presa-form-validation";
+import Form from "../node_modules/presa-form-validation/src/form";
 
 function startup() {
 	const bod = document.querySelector("body");
-	bod.textContent = "test";
 	const config = getConfig();
 	const myForm = new Form(config);
 
@@ -15,9 +14,9 @@ function getConfig() {
 		["email", "email", "joe@mama.com"],
 		["country", "text", "Joemamistan"],
 		["zip code", "number", "69420"],
-		["password", "password"],
-		["password confirmation", "password"],
-		["submit", "submit"],
+		["password", "password", ""],
+		["password confirmation", "password", ""],
+		["submit", "submit", ""],
 	];
 
 	const formOptions = {
@@ -38,7 +37,7 @@ function getConfig() {
 	};
 
 	const inputList = inputs.map((params, index) => {
-		const newOpts = { ...inputOptions };
+		const newOpts = { ...structuredClone(inputOptions) };
 
 		if (index === inputs.length - 1) newOpts.validationRequirements = {};
 
@@ -65,6 +64,7 @@ function getConfig() {
 			.join("");
 
 		newOpts.secondaryProperties.placeholder = params[2];
+        console.log(params[2])
 
 		return { type: "input", options: newOpts };
 	});
